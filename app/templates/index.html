@@ -2,11 +2,27 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% import "_macros.html" as macros %}
 
-{% block title %}Flasky{% endblock %}
+{% block title %}SB Lending: Small Business Credit Risk Model{% endblock %}
 
 {% block page_content %}
 <div class="page-header">
-    <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
+    <h1>Welcome, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}visitor{% endif %}!</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>The economic disruption of COVID-19 has hit small businesses very hard. The CARES stimulus package enacted in late March 2020 includes: 
+                <ul>
+                    <li>Deferment of existing SBA loans</li>
+                    <li>Access to emergency funds for Paycheck Protection Program and Economic Injury Disaster Loans</li>
+                    <li>Debt forgiveness for payroll and operational costs</li>
+                    <li>Tax credits and tax deferments</li>
+                </ul>
+                There are many shortcomings of the stimulus package, outlined <a href="https://www.linkedin.com/pulse/covid-19-recession-integrating-new-risk-drivers-models-bob-phelan/">here.</a> Regardless of current and future legislation, the economic situation is uniquely challenging for existing credit risk models. 
+                This app will serve a production-level machine learning model using an existing gradient boosted tree model on typical credit risk features that feeds into a logistic regression models with new COVID-19 specific features. 
+            </p>
+        </div>
+    </div>
 </div>
 <div>
     {% if current_user.can(Permission.WRITE) %}
